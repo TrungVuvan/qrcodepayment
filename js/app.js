@@ -34,6 +34,7 @@ function doFail(e) {
 
 function onConnect() {
     client.subscribe("Graph");
+    client.subscribe("qrcodepaymenttype")
     console.log("Connected to topic Graph");
     client.subscribe("ControlLED");
     console.log("Connected to topic ControlLED");
@@ -46,6 +47,7 @@ function onConnectionLost(responseObject) {
 }
 
 function onMessageArrived(message) {
+    console.log(message.payloadString);
     if (message.destinationName == 'Graph') {
         
     }
